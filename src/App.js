@@ -11,24 +11,30 @@ function App() {
   const [expiry, setExpiry] = useState('');
   const [cvc, setCvc] = useState('');
   const [focus, setFocus] = useState('');
+  const [clicked, setClicked] = useState(false);
 
   const [form] = Form.useForm();
 
   const onFinish = () => {
     alert('Details submitted successfully');
-      window.location.reload();
+      // window.location.reload();
+    setClicked(true);
+    setTimeout(() => {
+          window.location.reload();
+        }, 5000);
   };
   
     const onFinishFailed = () => {
       alert('Sorry, try again later');
-      window.location.reload();
+      // window.location.reload();
     };
   
-   return (
+  return (
+     <>
     <div className="App">
       <Card title="" bordered={true} style={{ width: "70%", margin: 10, backgroundColor: '#bae7ff' }}>
-        <Title level={3} className="heading">
-            CREDIT CARD
+        <Title style={{fontFamily:"fantasy", fontSize:25, border:"1rem"}} level={3} className="heading">
+            CREDIT CARD FORM - NAVEEN R H
           </Title>
       <Cards
         number={number}
@@ -120,7 +126,7 @@ function App() {
                   rules={[
                     {
                       required: true,
-                      message: "Please Enter Expiry Date",
+                      message: "Please Enter Expiry",
                     },
                     {
                       min: 2,
@@ -196,7 +202,17 @@ function App() {
       </Form>
       </Card>
       </Card>
-    </div>
+      </div>
+      <br></br>
+      { clicked ? <Card>
+          <Title>SAVED DATA</Title>
+          <div><h4>Card Number : {number}</h4></div>
+          <div><h4>Card Holder Name : {name}</h4></div>
+          <div><h4>Expiry : {expiry}</h4></div>
+          <div><h4>CVC : {cvc}</h4></div>
+        </Card> : null}
+      
+     </>
   );
 }
 
