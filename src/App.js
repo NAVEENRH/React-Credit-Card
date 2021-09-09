@@ -25,7 +25,7 @@ function App() {
   };
   
     const onFinishFailed = () => {
-      alert('Sorry, try again later');
+      alert('Sorry, Try again');
       // window.location.reload();
     };
   
@@ -34,10 +34,11 @@ function App() {
     <div className="App">
       <Card title="" bordered={true}>
         <Title style={{fontFamily:"fantasy", fontSize:25, border:"1rem"}} level={3} className="heading">
-            CREDIT CARD FORM - NAVEEN R H
+            <h1>CREDIT CARD FORM - NAVEEN R H</h1>
           </Title>
           <div style={{marginBottom: "-4.5rem" }}>
-             <Cards
+            <Cards
+              className="Cards"
         number={number}
         name={name}
         expiry={expiry}
@@ -47,13 +48,14 @@ function App() {
       /> 
         </div>
     
-          <Card style={{ backgroundColor: "white",marginBottom: "-rem", width: "30rem", display: "flex", alignItems: 'center', marginLeft: "10rem", borderRadius: "1rem", paddingTop:"5rem" }}>
-          <Form
+          <Card className="Card" style={{ backgroundColor: "white",marginBottom: "-rem", width: "30rem", display: "flex", alignItems: 'center', marginLeft: "10rem", borderRadius: "1rem", paddingTop:"5rem" }}>
+            <Form
+              className="Form"
           onFinish={onFinish}
             onFinishFailed={onFinishFailed}
           >
         
-          <Row>
+          <Row className="Row">
             <Col xs={12} sm={12} md={12} ml={12} lg={12} xl={8} xxl={6}>
                 <Form.Item
                   className="formfiled"
@@ -81,7 +83,7 @@ function App() {
                     type="number"
                     className="formfiled"
                     style={{ width: "80%",  }}
-                  placeholder="Number"
+                  placeholder="Card Number"
                   onChange={e => setNumber(e.target.value)}
                   onFocus={e=>setFocus(e.target.name)}
                   />
@@ -115,7 +117,7 @@ function App() {
                 >
                   <Input
                     type="text"
-                    placeholder="Name"
+                    placeholder="Card Holder Name"
                     style={{ width: "80%", textAlign: "left" }}
                   className="formfiled"
                   onChange={e => setName(e.target.value)}
@@ -189,12 +191,8 @@ function App() {
                   />
                 </Form.Item>
               </Col>
-             
-                
-        
-                
               </Row>
-              </Form>
+             
               
               <div style={{marginLeft: "1rem"}}>
                <Button
@@ -205,11 +203,13 @@ function App() {
                 Submit
                 </Button>
               </div>
+               </Form>
       
       </Card>
       </Card>
       </div>
       <br></br>
+      <div  style={{alignItems:"center"}}>
       { clicked ? <Card>
           <Title>SAVED DATA</Title>
           <div><h4>Card Number : {number}</h4></div>
@@ -217,7 +217,7 @@ function App() {
           <div><h4>Expiry : {expiry}</h4></div>
           <div><h4>CVC : {cvc}</h4></div>
         </Card> : null}
-      
+        </div>
      </>
   );
 }
