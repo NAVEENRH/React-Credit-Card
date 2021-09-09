@@ -32,25 +32,29 @@ function App() {
   return (
      <>
     <div className="App">
-      <Card title="" bordered={true} style={{ width: "70%", margin: 10, backgroundColor: '#bae7ff' }}>
+      <Card title="" bordered={true}>
         <Title style={{fontFamily:"fantasy", fontSize:25, border:"1rem"}} level={3} className="heading">
             CREDIT CARD FORM - NAVEEN R H
           </Title>
-      <Cards
+          <div style={{marginBottom: "-4.5rem" }}>
+             <Cards
         number={number}
         name={name}
         expiry={expiry}
         cvc={cvc}
-        focused={focus}
-      />
-      <Card style={{backgroundColor:"white"}}>
+            focused={focus}
+            
+      /> 
+        </div>
+    
+          <Card style={{ backgroundColor: "white",marginBottom: "-rem", width: "30rem", display: "flex", alignItems: 'center', marginLeft: "10rem", borderRadius: "1rem", paddingTop:"5rem" }}>
           <Form
           onFinish={onFinish}
             onFinishFailed={onFinishFailed}
           >
         
           <Row>
-            <Col xs={12} sm={12} md={12} lg={12} xl={8} xxl={6}>
+            <Col xs={12} sm={12} md={12} ml={12} lg={12} xl={8} xxl={6}>
                 <Form.Item
                   className="formfiled"
                   name="number"
@@ -71,12 +75,12 @@ function App() {
                   label={
                     <label style={{ fontWeight: 500, fontSize: 12 }}>Card Number</label>
                   }
-                  style={{ textAlign: "left" }}
+                  style={{ textAlign: "left", marginLeft:"2rem" }}
                 >
                   <Input
                     type="number"
                     className="formfiled"
-                    style={{ width: "80%", textAlign: "left" }}
+                    style={{ width: "80%",  }}
                   placeholder="Number"
                   onChange={e => setNumber(e.target.value)}
                   onFocus={e=>setFocus(e.target.name)}
@@ -107,7 +111,7 @@ function App() {
                       message: "Max 16 letters are allowed",
                     },
                   ]}
-                  style={{ textAlign: "left" }}
+                  style={{ textAlign: "left", marginLeft:"2rem" }}
                 >
                   <Input
                     type="text"
@@ -140,7 +144,7 @@ function App() {
                   label={
                     <label style={{ fontWeight: 500, fontSize: 12 }}>Expiry</label>
                   }
-                  style={{ textAlign: "left" }}
+                 style={{ textAlign: "left", marginLeft:"2rem" }}
                 >
                   <Input
                     type="number"
@@ -173,7 +177,7 @@ function App() {
                   label={
                     <label style={{ fontWeight: 500, fontSize: 12 }}>Expiry</label>
                   }
-                  style={{ textAlign: "left" }}
+                  style={{ textAlign: "left", marginLeft:"2rem" }}
                 >
                   <Input
                     type="number"
@@ -185,21 +189,23 @@ function App() {
                   />
                 </Form.Item>
               </Col>
-            
-            </Row>
-            <Col xs={24} sm={24} md={24} lg={12} xl={8} xxl={6}>
-            <Form.Item>
-              <Button
+             
+                
+        
+                
+              </Row>
+              </Form>
+              
+              <div style={{marginLeft: "1rem"}}>
+               <Button
                 type="primary"
                 htmlType="submit"
-                  style={{ float: "right", borderRadius: ".25rem" }}
-                  
+                className="button button1"
               >
                 Submit
                 </Button>
-            </Form.Item>
-            </Col>
-      </Form>
+              </div>
+      
       </Card>
       </Card>
       </div>
